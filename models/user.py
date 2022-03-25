@@ -1,5 +1,6 @@
 
 from db import db
+from section8.restful.resources.user import User
 
 class UserModel(db.Model):
     __tablename__='users'
@@ -11,6 +12,12 @@ class UserModel(db.Model):
     def __init__(self,username,password):
         self.username=username
         self.password=password
+
+    def json(self):
+        return {
+            "user-id":self.id,
+            "username":self.username
+        }    
 
     def save_to_db(self):
         db.session.add(self)
