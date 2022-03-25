@@ -1,6 +1,5 @@
 
 from db import db
-from section8.restful.resources.user import User
 
 class UserModel(db.Model):
     __tablename__='users'
